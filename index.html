@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For You</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 15%;
+            transition: 0.5s;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .red {
+            background-color: red;
+            color: white;
+        }
+
+        .white {
+            background-color: white;
+            color: black;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="step1">
+    <h1>Before we continue...</h1>
+    <p>Enter your name:</p>
+    <input type="text" id="nameInput" placeholder="Your name">
+    <br>
+    <button class="white" onclick="start()">Continue</button>
+</div>
+
+<div id="step2" style="display:none;">
+    <h1 id="angryText"></h1>
+    <button class="red" onclick="nextStep()">Block me now</button>
+</div>
+
+<div id="step3" style="display:none;">
+    <h2>Wait... are you really about to block me? 🤨</h2>
+    <button class="white" onclick="finalStep()">Click if you still love me</button>
+</div>
+
+<div id="final" style="display:none;">
+    <h1 style="color:pink;">I LOVE YOU ❤️</h1>
+    <p id="loveText"></p>
+</div>
+
+<script>
+let personName = "";
+
+function start() {
+    personName = document.getElementById("BOLUWATIFE PAUL").value;
+    if(personName === "BOLUWATIFE PAUL") {
+        alert("Enter your name first 😌");
+        return;
+    }
+
+    document.getElementById("step1").style.display = "none";
+    document.getElementById("step2").style.display = "block";
+
+    document.getElementById("angryText").innerHTML =
+    "I hate you " + personName + " 😒 You are too much!";
+}
+
+function nextStep() {
+    document.getElementById("step2").style.display = "none";
+    document.getElementById("step3").style.display = "block";
+}
+
+function finalStep() {
+    document.getElementById("step3").style.display = "none";
+    document.getElementById("final").style.display = "block";
+
+    document.getElementById("loveText").innerHTML =
+    personName + ", I was just playing. You’re my favorite human ❤️";
+}
+</script>
+
+</body>
+</html>
